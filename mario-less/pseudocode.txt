@@ -1,0 +1,5 @@
+include the packages
+ask for input between 1 to 8
+if bet is not in that range, reask for it
+for i in range(1 to 8):
+printf("#\n");

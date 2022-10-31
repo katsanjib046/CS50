@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="try_style.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded',function(){
+                let correct = document.querySelector('.correct');
+                correct.addEventListener('click', function(){
+                    correct.style.backgroundColor = 'green';
+                    document.querySelector('#q1').innerHTML = 'Correct!';
+                });
+                let incorrects = document.querySelectorAll('.incorrect');
+                for (let i = 0;i < incorrects.length;i++){
+                    incorrects[i].addEventListener('click',function(){
+                        incorrects[i].style.backgroundColor = 'red';
+                        document.querySelector('#q1').innerHTML = 'Incorrect!';
+                    });
+                }
+             //second part
+             document.querySelector('#check').addEventListener('click',function(){
+                let input = document.querySelector('input');
+                if ((input.value).toLowerCase() === 'kathmandu'){
+                    input.style.backgroundColor = 'green';
+                    document.querySelector('#q2').innerHTML = 'Correct!';
+                }
+                else{
+                    input.style.backgroundColor = 'red';
+                    document.querySelector('#q2').innerHTML='Incorrect!';
+                }
+                })
+             })
+
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>
+                    Who was the first US president?
+                    <p id="q1"></p>
+                </h3>
+                <button class="incorrect">Thomas Jefferson</button>
+                <button class="correct">George Washington</button>
+                <button class="incorrect">Franklin Roosevelt</button>
+                <button class="incorrect">Bill Clinton</button>
+                <!-- TODO: Add multiple choice question here -->
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>
+                    What is the capital city of Nepal?
+                    <p id="q2">
+                    </p>
+                </h3>
+                <input type="text"></input>
+                <button id="check">Check Answer</button>
+            </div>
+        </div>
+    </body>
+</html>

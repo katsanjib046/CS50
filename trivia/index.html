@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+
+            function checkAnswer1(answer, id,idq){
+                if (answer == 'George Washington')
+                {
+                    let btn = document.getElementById(id);
+                    btn.style.backgroundColor = 'green';
+                    let txt = document.getElementById(idq);
+                    txt.innerHTML = 'Correct!';
+                    txt.style.color = 'green';
+                }
+
+                else
+                {
+                    let btn = document.getElementById(id)
+                    btn.style.backgroundColor = 'red'
+                    let txt = document.getElementById(idq)
+                    txt.innerHTML = 'Incorrect!'
+                    txt.style.color = 'red'
+                }
+                var lst = ['1ans1','1ans2','1ans3','1ans4']
+                    for (let i = 0; i < lst.length; i++){
+                        if (lst[i] != id){
+                        let temp = document.getElementById(lst[i])
+                        temp.style.backgroundColor = '#d9edff'
+                        }
+                    }
+            }
+
+            function checkanswer2(id,idq,idt){
+                let txt = document.getElementById(id);
+                if ((txt.value).toLowerCase() == 'kathmandu'){
+                    let elem = document.getElementById(idq);
+                    elem.innerHTML = 'Correct!';
+                    elem.style.color = 'green';
+                    //changing the color of background of box
+                    let box = document.getElementById(idt);
+                    box.style.backgroundColor = '#00ff00'
+
+                }
+                else
+                {
+                    let elem = document.getElementById(idq);
+                    elem.innerHTML = 'Incorrect!';
+                    elem.style.color = 'red';
+
+                    //changing the color of background of box
+                    let box = document.getElementById(idt);
+                    box.style.backgroundColor = '#ff0000'
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>
+                    Who was the first US president?
+                    <div id="q1"></div>
+                </h3>
+                <button id="1ans1" onclick="checkAnswer1('Thomas Jefferson','1ans1','q1')">Thomas Jefferson</button>
+                <button id="1ans2" onclick="checkAnswer1('George Washington','1ans2','q1')">George Washington</button>
+                <button id="1ans3" onclick="checkAnswer1('Franklin Roosevelt','1ans3','q1')">Franklin Roosevelt</button>
+                <button id="1ans4" onclick="checkAnswer1('Bill Clinton','1ans4','q1')">Bill Clinton</button>
+                <!-- TODO: Add multiple choice question here -->
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>
+                    What is the capital city of Nepal?
+                    <div id="q2">
+                    </div>
+                </h3>
+                <form autocompelte="off">
+                    <input name="ans2" id="2ans">
+                    <input type="submit" value="Submit" id="2submit" onclick="checkanswer2('2ans','q2','2ans');return false;">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
